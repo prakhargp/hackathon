@@ -6,34 +6,39 @@
       <th scope="col">Description</th>
       <th scope="col">Votes Count</th>
       <th scope="col">Created By</th>
-      <th scope="col">Create Date</th>
-      <th scope="col">Tags</th>
+      <th scope="col"><%= link_to "Create Date",:sort => "created_at",class:"create" %></th>
+      <th scope="col" ><%= link_to "Tags", :sort => "tag" %></th>
       <th scope="col">Collaborators</th>
     </tr>
   </thead>
   <% @challenge.each do |challenge| %>
-  <tbody style="margin: 0px 0px 10px 0px">
-    <tr>
-      <td style="text-align: right"><%= challenge.id %></td>
-      <td><%= challenge.title %></td>
-      <td><%= challenge.description %> </td>
-      <td style="width:150px; margin-right:10px"> <div style="display: flex; justify-content:space-between">
-      <div><%= challenge.votes.count %></div>
-    <% if challenge.voted_by?(current_employee) %>
-
-      <% else %>
-
-      <div><%= link_to "+", upvote_challenge_path(challenge), method: :post %></div>
-      <% end %>
-      
-      </div> </td>
-      <td><%= "E#{challenge.employee_id}".html_safe  %></td>
-      <td><%= challenge.created_at %> </td>
-      <td><%= challenge.tag %> </td>
-      <td></td>
-
-    </tr>
-  </tbody>
-
-<% end %>
+    <tbody style="margin: 0px 0px 10px 0px">
+      <tr>
+        <td style="text-align: center"><%= challenge.id %></td>
+        <td><%= challenge.title %></td>
+        <td><%= challenge.description %> </td>
+        <td style="width:150px; margin-right:10px"> <div style="display: flex; justify-content:space-between">
+        <div>
+          <% if challenge.votes.count == 0 %>
+            <div></div>
+          <% else %>
+            <%= challenge.votes.count %>
+          <% end %>
+        </div>
+        <% if current_employee.id == challenge.employee_id %>
+        <% else %>
+          <% if challenge.voted_by?(current_employee) %>
+            <div><%= link_to "-", downvote_challenge_path(challenge), method: :post, class: "vote-button" %></div>
+          <% else %>
+            <div><%= link_to "+", upvote_challenge_path(challenge), method: :post, class: "vote-button" %></div>
+          <% end %>
+        <% end %>  
+        </div> </td>
+        <td><%= "E#{challenge.employee_id}".html_safe  %></td>
+        <td><%= challenge.created_at %> </td>
+        <td><%= challenge.tag %> </td>
+        <td></td>
+      </tr>
+    </tbody>
+  <% end %>
 </table>

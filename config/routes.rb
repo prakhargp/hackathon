@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :challenge do 
     member do
       post 'upvote'
+      post 'downvote'
     end
   end
 
