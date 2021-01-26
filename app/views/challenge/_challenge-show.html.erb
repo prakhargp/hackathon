@@ -1,0 +1,39 @@
+<table class="table">
+  <thead class="thead-dark" style="background-color: #01579B; color: #FFFFFF;">
+    <tr>
+      <th scope="col">Challenge id</th>
+      <th scope="col">Tilte</th>
+      <th scope="col">Description</th>
+      <th scope="col">Votes Count</th>
+      <th scope="col">Created By</th>
+      <th scope="col">Create Date</th>
+      <th scope="col">Tags</th>
+      <th scope="col">Collaborators</th>
+    </tr>
+  </thead>
+  <% @challenge.each do |challenge| %>
+  <tbody style="margin: 0px 0px 10px 0px">
+    <tr>
+      <td style="text-align: right"><%= challenge.id %></td>
+      <td><%= challenge.title %></td>
+      <td><%= challenge.description %> </td>
+      <td style="width:150px; margin-right:10px"> <div style="display: flex; justify-content:space-between">
+      <div><%= challenge.votes.count %></div>
+    <% if challenge.voted_by?(current_employee) %>
+
+      <% else %>
+
+      <div><%= link_to "+", upvote_challenge_path(challenge), method: :post %></div>
+      <% end %>
+      
+      </div> </td>
+      <td><%= "E#{challenge.employee_id}".html_safe  %></td>
+      <td><%= challenge.created_at %> </td>
+      <td><%= challenge.tag %> </td>
+      <td></td>
+
+    </tr>
+  </tbody>
+
+<% end %>
+</table>

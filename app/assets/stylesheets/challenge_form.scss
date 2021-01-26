@@ -1,0 +1,27 @@
+.add-form {
+  padding: 30px 15px 30px 15px;
+  display: flex;
+  
+}
+.add-form-div1,.add-form-div2,.add-form-div3{
+    width:24%;
+    display: flex;
+    flex-direction:column;
+    text-align:center;
+    font-weight: bold;
+    margin-right:25px  
+}
+
+.add-form-div4{
+    width:22%;
+    display: flex;
+    justify-content:center;
+}
+.submit{
+    width:60%;
+    height:80%;
+    background-color: #5BA9FE;
+    border: none;
+    color: white;
+    margin-top: 10px;
+}

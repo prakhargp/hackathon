@@ -1,0 +1,22 @@
+<%= form_for :challenges, :url => {:action => "create", :controller => "challenge"} do |f| %>
+<div class="add-form">
+<div class="add-form-div1">
+<%= f.label "Title" , :class => "title-label" %>
+<%= f.text_field :title , :class => "input" %>
+</div>
+
+<div class="add-form-div2">
+<%= f.label "Description", :class => "desc-label" %>
+<%= f.text_field :description, :class => "input" %>
+</div>
+<div class="add-form-div3">
+<%= f.label "Tag", :class => "tag-label" %>
+<%= f.select :tag, ["","a", "b", "c"] ,class: "input-select" %>
+<%= f.text_field :employee_id, :type => 'hidden', :value => current_employee.id ,:class => "" %>
+</div>
+<div class="add-form-div4">
+<%= f.submit "Add Challenge", class: "submit" %>
+</div>
+
+</div>
+<% end %>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  vote: 1
+  employee: one
+  challenge: one
+
+two:
+  vote: 1
+  employee: two
+  challenge: two

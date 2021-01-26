@@ -1,0 +1,13 @@
+.header{
+    height: 35px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #18374D;
+    color: white; 
+    padding: 5px 15px 0px 15px;
+}
+
+.logout ,.home{
+    color: white;
+    text-decoration: none;
+}
