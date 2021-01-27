@@ -10,7 +10,5 @@ class Challenge < ApplicationRecord
     def voted_by?(user)
     votes.exists?(employee_id:user.id)
     end
-    def collab_by?(user)
-        collaborators.exists?(employee_id:user.id)
-    end
+    
 end
