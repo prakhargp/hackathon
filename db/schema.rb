@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210122100443) do
+ActiveRecord::Schema.define(version: 20210126190023) do
 
   create_table "challenges", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20210122100443) do
     t.datetime "updated_at",                null: false
     t.integer  "employee_id"
     t.index ["employee_id"], name: "index_challenges_on_employee_id", using: :btree
+  end
+
+  create_table "collaborators", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "employee_id"
+    t.integer  "challenge_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["challenge_id"], name: "index_collaborators_on_challenge_id", using: :btree
+    t.index ["employee_id"], name: "index_collaborators_on_employee_id", using: :btree
   end
 
   create_table "employees", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -44,6 +53,8 @@ ActiveRecord::Schema.define(version: 20210122100443) do
   end
 
   add_foreign_key "challenges", "employees"
+  add_foreign_key "collaborators", "challenges"
+  add_foreign_key "collaborators", "employees"
   add_foreign_key "votes", "challenges"
   add_foreign_key "votes", "employees"
 end
