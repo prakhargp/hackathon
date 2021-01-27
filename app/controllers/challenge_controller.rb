@@ -2,13 +2,7 @@ class ChallengeController < ApplicationController
     before_action :authenticate_employee!
 
     def index
-       if params[:sort] == "created_at"
-        @challenge = Challenge.all.order(params[:sort])
-       elsif params[:sort] == "tag"
-        @challenge = Challenge.all.order(params[:sort])
-       else
-        @challenge = Challenge.all.order(created_at: :desc)
-       end
+    @challenge = Challenge.all
     end
 
     def create
