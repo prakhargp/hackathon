@@ -21,7 +21,7 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 gem 'rspec-rails', '~> 4.0', '>= 4.0.2'
-gem 'factory_bot', '~> 6.1'
+gem 'factory_bot_rails'
 gem 'faker', '~> 2.15', '>= 2.15.1'
 gem 'shoulda-matchers', '~> 4.5', '>= 4.5.1'
 

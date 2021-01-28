@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     member do
       post 'upvote'
       post 'downvote'
+      post 'collaborations'
     end
   end
 

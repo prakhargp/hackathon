@@ -2,7 +2,7 @@ class ChallengeController < ApplicationController
     before_action :authenticate_employee!
 
     def index
-    @challenge = Challenge.all
+        @challenge = Challenge.all
     end
 
     def create
@@ -25,6 +25,10 @@ class ChallengeController < ApplicationController
         redirect_to root_path
     end
     
-
+    def collaborations
+        @challenge = Challenge.find(params[:id])
+        @challenge.collaborators.create(:employee_id => current_employee.id)
+        redirect_to root_path
+    end
 
 end
