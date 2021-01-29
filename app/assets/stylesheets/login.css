@@ -17,3 +17,13 @@
 .label{
     font-weight: bold;
 }
+.sign-up{
+    text-align: center;
+    color: #18374D;
+}
+.signup-form-div{
+    width: 30%;
+    text-align: center;
+    margin: auto;
+    margin-top: 40px;
+}

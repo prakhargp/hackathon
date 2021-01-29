@@ -3,6 +3,6 @@ FactoryBot.define do
         title {"New task"}
         description {"This is a new task"}
         tag {"a"}
-        employee { nil }
+        employee_id {"123"}
     end
 end

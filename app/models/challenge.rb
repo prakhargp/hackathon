@@ -3,6 +3,7 @@ class Challenge < ApplicationRecord
     validates_presence_of :title
     validates_presence_of :description
     validates_presence_of :tag
+
     has_many :votes, dependent: :destroy
     has_many :collaborators, dependent: :destroy
 
@@ -17,7 +18,7 @@ class Challenge < ApplicationRecord
         e_id = ""
         user_id = Collaborator.select(:employee_id).where(challenge_id: challenge_id)
         user_id.each do |user|
-        e_id += " E"+ (Employee.find(user.employee_id).id).to_s
+        e_id += (Employee.find(user.employee_id).emp).to_s+ " "
         end
         return(e_id)
       end

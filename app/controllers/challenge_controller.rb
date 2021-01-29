@@ -7,9 +7,10 @@ class ChallengeController < ApplicationController
 
     def create
         @challenge = Challenge.new(params.require(:challenges).permit(:title, :description, :tag, :employee_id))
-            if @challenge.save
+        @challenge.employee = current_employee    
+        if @challenge.save
                 redirect_to root_path
-            end
+        end
     end
 
     def upvote

@@ -52,4 +52,29 @@ a:visited{
     background: rgba(0, 0, 0, 0.1);
   }
   
-  
+  #table-header{
+    background-color: #01579B;
+     color: #FFFFFF;
+  }
+  #tbody{
+    margin: 0px 0px 10px 0px;
+  }
+
+  #td1{
+    text-align: center;
+  }
+  #td4{
+    width:150px;
+     margin-right:10px;
+  }
+  #td4-div{
+    display: flex;
+     justify-content:space-between;
+  }
+  #div1{
+    display: flex; 
+    justify-content: space-between;
+  }
+  #div1-div1{
+    width: 90%;
+  }

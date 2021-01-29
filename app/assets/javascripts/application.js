@@ -17,3 +17,7 @@
 
 
 
+setTimeout(function(){
+    var alert = document.getElementById("alert")
+    alert.style.display = 'none'
+  }, 3000)

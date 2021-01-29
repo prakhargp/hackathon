@@ -1,5 +1,5 @@
 <table class="table table-sortable">
-  <thead class="thead-dark" style="background-color: #01579B; color: #FFFFFF;">
+  <thead class="thead-dark" id="table-header">
     <tr>
       <th scope="col">Challenge id</th>
       <th scope="col">Tilte</th>
@@ -11,14 +11,14 @@
       <th scope="col">Collaborators</th>
     </tr>
   </thead>
-    <tbody style="margin: 0px 0px 10px 0px">
+    <tbody id="tbody">
   <% @challenge.each do |challenge| %>
 
       <tr>
-        <td style="text-align: center"><%= challenge.id %></td>
+        <td id="td1"><%= challenge.id %></td>
         <td><%= challenge.title %></td>
         <td><%= challenge.description %> </td>
-        <td style="width:150px; margin-right:10px"> <div style="display: flex; justify-content:space-between">
+        <td id="td4"> <div id="td4-div">
         <div>
           <% if challenge.votes.count == 0 %>
             <div></div>
@@ -35,12 +35,12 @@
           <% end %>
         <% end %>  
         </div> </td>
-        <td><%= "E#{challenge.employee_id}".html_safe  %></td>
+        <td><%= "#{challenge.employee.emp}".html_safe  %></td>
         <td><%= challenge.created_at %> </td>
         <td><%= challenge.tag %> </td>
         <td> 
-          <div style="display: flex; justify-content: space-between  ">
-            <div style="width: 90%">
+          <div id="div1" >
+            <div id="div1-div1">
               <%= challenge.collaboraters_name(challenge.id) %>
             </div>
               <% if current_employee.id == challenge.employee_id %>
