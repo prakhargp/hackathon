@@ -29,7 +29,7 @@
         <% if current_employee.id == challenge.employee_id %>
         <% else %>
           <% if challenge.voted_by?(current_employee) %>
-            <div><%= link_to "-", downvote_challenge_path(challenge), method: :post, class: "vote-button" %></div>
+            <div><%= link_to "-", downvote_challenge_path(challenge), method: :delete, class: "vote-button" %></div>
           <% else %>
             <div><%= link_to "+", upvote_challenge_path(challenge), method: :post, class: "vote-button" %></div>
           <% end %>
