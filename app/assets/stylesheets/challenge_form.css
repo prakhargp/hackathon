@@ -23,5 +23,11 @@
     background-color: #5BA9FE;
     border: none;
     color: white;
-    margin-top: 10px;
+    margin-top: 15px;
+}
+select{
+    width: 95%;
+    height: 31px;
+    position: relative;
+    bottom: 1px;
 }

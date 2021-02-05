@@ -19,11 +19,11 @@
         <td><%= challenge.title %></td>
         <td><%= challenge.description %> </td>
         <td id="td4"> <div id="td4-div">
-        <div>
+        <div >
           <% if challenge.votes.count == 0 %>
-            <div></div>
+            <div class="votes-count">0</div>
           <% else %>
-            <%= challenge.votes.count %>
+            <div class="votes-count"><%= challenge.votes.count %></div>
           <% end %>
         </div>
         <% if current_employee.id == challenge.employee_id %>
@@ -35,25 +35,25 @@
           <% end %>
         <% end %>  
         </div> </td>
-        <td><%= "#{challenge.employee.emp}".html_safe  %></td>
+        <td ><div class="created-by"><%= "#{challenge.employee.emp}".html_safe %></div></td>
         <td><%= challenge.created_at %> </td>
         <td><%= challenge.tag %> </td>
         <td> 
-          <div id="div1" >
+          <div id="div1">
             <div id="div1-div1">
               <%= challenge.collaboraters_name(challenge.id) %>
             </div>
-              <% if current_employee.id == challenge.employee_id %>
+            <% if current_employee.id == challenge.employee_id %>
+            <% else %>
+              <% if challenge.collab_by?(current_employee) %> 
               <% else %>
-                <% if challenge.collab_by?(current_employee) %> 
-                <% else %>
-                  <div>
-                    <%= link_to "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check2' viewBox='0 0 16 16'>
-                    <path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/>
-                    </svg>".html_safe, collaborations_challenge_path(challenge), method: :post, class:"tick" %>
-                  </div>
-                <% end %>
+                <div>
+                  <%= link_to "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check2' viewBox='0 0 16 16'>
+                  <path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/>
+                  </svg>".html_safe, collaborations_challenge_path(challenge), method: :post, class:"tick" %>
+                </div>
               <% end %>
+            <% end %>
           </div>
         </td>
       </tr>

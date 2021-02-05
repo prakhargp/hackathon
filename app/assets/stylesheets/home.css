@@ -78,3 +78,15 @@ a:visited{
   #div1-div1{
     width: 90%;
   }
+  .vote-button{
+    margin-right: 20px;
+  }
+  .votes-count{
+    width: 100px;
+    text-align: center;
+  }
+  .created-by{
+    width: 100px;
+
+    text-align: center;
+  }

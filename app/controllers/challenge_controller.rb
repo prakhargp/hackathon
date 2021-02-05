@@ -3,6 +3,10 @@ class ChallengeController < ApplicationController
 
     def index
         @challenge = Challenge.all
+        tags_arr = []
+        Tag.all.each do |tag| 
+            tags_arr.push(tag.tag_name)  
+        end 
     end
 
     def create

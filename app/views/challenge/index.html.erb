@@ -1,13 +1,10 @@
-
 <div class="header">
-<%= link_to "Home", root_path, class:"home" %>
-<div class="hackathon">Hackathon</div>
-<%= link_to "Logout '#{current_employee.emp}'".html_safe, destroy_employee_session_path, method: :delete, class: "logout" %>
+    <%= link_to "Home", root_path, class:"home" %>
+    <div class="hackathon">Hackathon</div>
+    <%= link_to "Logout '#{current_employee.emp}'".html_safe, destroy_employee_session_path, method: :delete, class: "logout" %>
 </div>
 
 <%= render 'challengeform' %>
-
 <hr>
-
 <%= render 'challenge-show' %>
 
