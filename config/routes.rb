@@ -4,6 +4,7 @@ Rails.application.routes.draw do
       post 'upvote'
       delete 'downvote'
       post 'collaborations'
+      delete 'cd'
     end
   end
   get '/employees' => 'challenge#index'

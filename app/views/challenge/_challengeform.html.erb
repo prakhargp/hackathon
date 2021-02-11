@@ -15,7 +15,7 @@
         </div>
         <div class="add-form-div3">
             <%= f.label "Tag", :class => "tag-label" %>
-            <%= f.select :tag, tags_arr ,selected: " ", class: "input-select" %>
+            <%= f.select :tag, tags_arr ,class: "input-select" %>
             <%= f.text_field :employee_id, :type => 'hidden', :value => current_employee.id %>
         </div>
         <div class="add-form-div4">

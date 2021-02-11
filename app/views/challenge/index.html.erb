@@ -1,10 +1,42 @@
 <div class="header">
-    <%= link_to "Home", root_path, class:"home" %>
+    <%= link_to "Home", root_path , class:"home" %>
     <div class="hackathon">Hackathon</div>
-    <%= link_to "Logout '#{current_employee.emp}'".html_safe, destroy_employee_session_path, method: :delete, class: "logout" %>
+    
+    <div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn">
+  <%= "\"#{current_employee.fname}\"" %>
+  </button>
+  <div id="myDropdown" class="dropdown-content">
+    <%= link_to "Edit", edit_employee_registration_path, class: "edit" %>
+    <hr class="hr">
+    <%= link_to "Logout", destroy_employee_session_path, method: :delete, class: "logout" %>
+  </div>
+</div>
 </div>
 
 <%= render 'challengeform' %>
 <hr>
 <%= render 'challenge-show' %>
 
+<script type="text/javascript">
+
+/* When the user clicks on the button,
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}
+</script>

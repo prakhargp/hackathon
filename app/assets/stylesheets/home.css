@@ -4,13 +4,19 @@
     justify-content: space-between;
     background-color: #18374D;
     color: white; 
-    padding: 5px 15px 0px 15px;
+    padding: 5px 10px 0px 10px;
 }
-
-.logout ,.home{
+.hackathon{
+  position: relative;
+  left: 20px;
+}
+.home{
     color: white;
     text-decoration: none;
+    position: relative;
+    left: 10px;
 }
+
 a:link{
     text-decoration: none;
 }
@@ -26,9 +32,15 @@ a:visited{
 .tick:visited{
   color: #01579B;
 }
+.cross{
+  background-color: lightgray;
+  color: #01579B;
+}
+.cross:visited{
+  color: #01579B;
+}
   
 
-//Css for sorting
 
 .table-sortable th {
     cursor: pointer;
@@ -90,3 +102,19 @@ a:visited{
 
     text-align: center;
   }
+.page-link{
+  background-color: #01579B;
+  transition: none;
+}
+.pag-div{
+  display: flex;
+  justify-content:flex-end;
+  margin-right: 10px;
+  
+}
+.pag li a {
+  background-color :#01579B !important; 
+  color: white !important;
+  border: 1px solid #18374D !important;
+  
+}

@@ -3,16 +3,11 @@
     color: white;
     text-align: center;
 }
-.login-btn{
-    background-color: #0B5FD6;
-    border: none;
-    color: white;
-}
 .login-form-div{
-    width: 30%;
+    width: 50%;
     text-align: center;
     margin: auto;
-    margin-top: 10%;
+    margin-top: 40px;
 }
 .label{
     font-weight: bold;
@@ -22,8 +17,13 @@
     color: #18374D;
 }
 .signup-form-div{
-    width: 30%;
+    width: 60%;
     text-align: center;
     margin: auto;
     margin-top: 40px;
+}
+.sign-up-btn{
+    float: right;
+    margin-right: 20px;
+    font-size: 20px;
 }

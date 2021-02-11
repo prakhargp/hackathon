@@ -1,18 +1,16 @@
 <h1 class="hackathon-title" >Hackathon</h1>
-<div class="login-form-div">
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="form-outline mb-4">
-      <%= f.label :Employee_Id ,class: "form-label label" %><br />
-      <%= f.text_field :login, autofocus: true, class: "form-control" %>
-    </div>
-    <div class="form-outline mb-4">
-      <%= f.label :password, class: "form-label label" %><br />
-      <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-    </div>
-    <div class="btn btn-primary btn-block">
-      <%= f.submit "Log in", class: "login-btn" %>
-    </div>
+<%= link_to "Sign Up", new_employee_registration_path, class: "text-primary sign-up-btn" %>
+<div class="container bg-light w-50 mt-5 h-100 p-3 pb-4">
+  <div class= "login-form-div">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <%= f.text_field :login, autofocus: true, class: "form-control", placeholder: "Employee Id" %>
+      <br>
+      <%= f.password_field :password, autocomplete: "current-password", class: "form-control", placeholder: "Password" %>
+      <br>
+      <%= f.submit "Log in", class: "btn btn-primary" %>
   <% end %>
+  </div>
+  
 </div>
 
 <%= render "devise/shared/links" %>

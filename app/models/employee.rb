@@ -5,6 +5,9 @@ class Employee < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :challenges, dependent: :destroy
   has_many :collaborators, dependent: :destroy
+  validates_presence_of :emp
+  validates_presence_of :fname
+  validates_presence_of :lname
 
   attr_writer :login
 

@@ -2,7 +2,8 @@ class ChallengeController < ApplicationController
     before_action :authenticate_employee!
 
     def index
-        @challenge = Challenge.all
+
+        @challenge = Challenge.paginate(:page => params[:page], :per_page => 3)
         tags_arr = []
         Tag.all.each do |tag| 
             tags_arr.push(tag.tag_name)  
@@ -36,4 +37,10 @@ class ChallengeController < ApplicationController
         redirect_to root_path
     end
 
+    def cd
+        @challenge = Challenge.find(params[:id])
+        @collaboration = Collaborator.where(challenge_id: @challenge.id, employee_id: current_employee.id)
+        Collaborator.delete(@collaboration.ids)
+        redirect_to root_path
+    end
 end
