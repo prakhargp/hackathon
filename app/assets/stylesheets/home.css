@@ -98,8 +98,7 @@ a:visited{
     text-align: center;
   }
   .created-by{
-    width: 100px;
-
+    width:auto;
     text-align: center;
   }
 .page-link{

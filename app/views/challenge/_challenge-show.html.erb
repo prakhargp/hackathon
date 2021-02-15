@@ -15,7 +15,7 @@
     <tbody id="tbody">
     
   <% @challenge.each do |challenge| %>
-
+      <% if challenge.employee_id != current_employee.id %>
       <tr>
         <td id="td1"><%= challenge.id %></td>
         <td><%= challenge.title %></td>
@@ -37,7 +37,7 @@
           <% end %>
         <% end %>  
         </div> </td>
-        <td ><div class="created-by"><%= "#{challenge.employee.emp}".html_safe %></div></td>
+        <td ><div class="created-by"><%= "#{challenge.employee.fname}".html_safe %></div></td>
         <td><%= challenge.created_at %> </td>
         <td><%= challenge.tag %> </td>
         <td> 
@@ -50,7 +50,7 @@
               <% if challenge.collab_by?(current_employee) %> 
               <%= link_to "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='blue' class='bi bi-x' viewBox='0 0 16 16'>
                   <path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/>
-                  </svg>".html_safe,cd_challenge_path(challenge) ,method: :delete , class:"tick" %>
+                  </svg>".html_safe,collaborationsdelete_challenge_path(challenge) ,method: :delete , class:"tick" %>
               <% else %>
                 <div>
                   <%= link_to "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check2' viewBox='0 0 16 16'>
@@ -62,6 +62,7 @@
           </div>
         </td>
       </tr>
+      <% end %>
     <% end %>
   </tbody>  
 </table>
@@ -104,8 +105,9 @@ function sortTableByColumn(table, column, asc = true) {
     table.querySelector(`th:nth-child(${ column + 1})`).classList.toggle("th-sort-desc", !asc);
 }
 
-document.querySelectorAll(".table-sortable th").forEach(headerCell => {
-    headerCell.addEventListener("click", () => {
+document.querySelectorAll(".table-sortable th").forEach((headerCell,index) => {
+  if index<1 return;
+     headerCell.addEventListener("click", () => {
         const tableElement = headerCell.parentElement.parentElement.parentElement;
         const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
         const currentIsAscending = headerCell.classList.contains("th-sort-asc");
