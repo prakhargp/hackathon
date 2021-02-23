@@ -1,13 +1,21 @@
-class Vote_service
+class VoteService
+  def initialize(params, user)
+    @params = params
+    @user = user
+  end
 
-    def upvoteservice(params,user)
-        @challenge = Challenge.find(params)
-        @challenge.votes.create(:employee_id => user.id)
+  def upvoteservice
+    @challenge = Challenge.find(@params)
+    if @challenge.votes.create(:employee_id => @user.id)
+      return 1
     end
+  end
 
-    def downvoteservice(params,user)
-        @challenge = Challenge.find(params)
-        @vote = Vote.where(challenge_id: @challenge, employee_id: user.id)
-        Vote.delete(@vote.ids)
+  def downvoteservice
+    @challenge = Challenge.find(@params)
+    @vote = Vote.find_by(challenge_id: @challenge, employee_id: @user.id)
+    if Vote.delete(@vote.id)
+      return 1
     end
+  end
 end

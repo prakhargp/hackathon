@@ -27,5 +27,4 @@ class Employee < ApplicationRecord
       end
     end
   end
-
 end

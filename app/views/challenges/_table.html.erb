@@ -15,7 +15,7 @@
     <tbody id="tbody">
     
   <% @challenge.each do |challenge| %>
-      <% if challenge.employee_id != current_employee.id %>
+      
       <tr>
         <td id="td1"><%= challenge.id %></td>
         <td><%= challenge.title %></td>
@@ -30,7 +30,7 @@
         </div>
         <% if current_employee.id == challenge.employee_id %>
         <% else %>
-          <% if challenge.voted_by?(current_employee) %>
+          <% if challenge.voted_by?(current_employee,challenge) %>
             <div><%= link_to "-", downvote_challenge_path(challenge), method: :delete, class: "vote-button" %></div>
           <% else %>
             <div><%= link_to "+", upvote_challenge_path(challenge), method: :post, class: "vote-button" %></div>
@@ -41,35 +41,36 @@
         <td><%= challenge.created_at %> </td>
         <td><%= challenge.tag %> </td>
         <td> 
-          <div id="div1">
+          <div id="div1" class="tddiv2">
             <div id="div1-div1">
               <%= challenge.collaboraters_name(challenge.id) %>
             </div>
             <% if current_employee.id == challenge.employee_id %>
             <% else %>
-              <% if challenge.collab_by?(current_employee) %> 
+              <% if challenge.collab_by?(current_employee, challenge) %> 
               <%= link_to "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='blue' class='bi bi-x' viewBox='0 0 16 16'>
-                  <path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/>
-                  </svg>".html_safe,collaborationsdelete_challenge_path(challenge) ,method: :delete , class:"tick" %>
+                                                                                                                              <path d='M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z'/>
+                                                                                                                              </svg>".html_safe, collaborationsdelete_challenge_path(challenge), method: :delete, class: "tick" %>
               <% else %>
                 <div>
                   <%= link_to "<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='currentColor' class='bi bi-check2' viewBox='0 0 16 16'>
-                  <path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/>
-                  </svg>".html_safe, collaborations_challenge_path(challenge), method: :post, class:"tick" %>
+                                                                                                                                                      <path d='M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z'/>
+                                                                                                                                                      </svg>".html_safe, collaborations_challenge_path(challenge), method: :post, class: "tick" %>
                 </div>
               <% end %>
             <% end %>
           </div>
         </td>
       </tr>
-      <% end %>
+      
     <% end %>
   </tbody>  
 </table>
 
-<div class="pag-div">
+<%# <div class="pag-div">
 <%= will_paginate @challenge, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer, class: "pag" %>
-</div>
+
+
 <script type="text/javascript">
 /**
  * Sorts a HTML table.
@@ -106,7 +107,7 @@ function sortTableByColumn(table, column, asc = true) {
 }
 
 document.querySelectorAll(".table-sortable th").forEach((headerCell,index) => {
-  if index<1 return;
+  
      headerCell.addEventListener("click", () => {
         const tableElement = headerCell.parentElement.parentElement.parentElement;
         const headerIndex = Array.prototype.indexOf.call(headerCell.parentElement.children, headerCell);
@@ -114,6 +115,7 @@ document.querySelectorAll(".table-sortable th").forEach((headerCell,index) => {
 
         sortTableByColumn(tableElement, headerIndex, !currentIsAscending);
     });
+  
 });
 
 </script>

@@ -1,16 +1,14 @@
 Rails.application.routes.draw do
-  resources :challenge do 
+  root "challenges#index"
+  post "challenges/create"
+  devise_for :employees
+  get "/employees" => "challenges#index"
+  resources :challenges do
     member do
-      post 'upvote'
-      delete 'downvote'
-      post 'collaborations'
-      delete 'collaborationsdelete'
+      post "upvote"
+      delete "downvote"
+      post "collaborations"
+      delete "collaborationsdelete"
     end
   end
-  get '/employees' => 'challenge#index'
-
-  devise_for :employees
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  root 'challenge#index'
-  post 'challenge/create' 
 end
