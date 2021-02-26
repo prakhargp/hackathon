@@ -1,3 +1,4 @@
+require "sidekiq/web"
 Rails.application.routes.draw do
   root "challenges#index"
   post "challenges/create"
@@ -11,4 +12,6 @@ Rails.application.routes.draw do
       delete "collaborationsdelete"
     end
   end
+
+  mount Sidekiq::Web => "/sidekiq"
 end

@@ -655,6 +655,18 @@
       "/Users/pgupta/hackathon/app/helpers/challenge_helper.rb": {
         "lines": [
           1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          5,
+          5,
+          0,
+          null,
+          5,
+          null,
           null
         ]
       },
@@ -662,6 +674,23 @@
         "lines": [
           1,
           1,
+          null
+        ]
+      },
+      "/Users/pgupta/hackathon/app/decorators/challenge_decorator.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null
         ]
       },
@@ -691,6 +720,48 @@
           6,
           null,
           6,
+          null,
+          null
+        ]
+      },
+      "/Users/pgupta/hackathon/spec/models/challenge_spec.rb": {
+        "lines": [
+          1,
+          1,
+          10,
+          10,
+          10,
+          10,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          2,
+          2,
+          2,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
+          null,
+          1,
+          1,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -855,7 +926,7 @@
           null
         ]
       },
-      "/Users/pgupta/hackathon/spec/views/_challengeform.html.erb_spec.rb": {
+      "/Users/pgupta/hackathon/spec/views/challenges/_challengeform.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -885,7 +956,7 @@
           null
         ]
       },
-      "/Users/pgupta/hackathon/spec/views/_table.html.erb_spec.rb": {
+      "/Users/pgupta/hackathon/spec/views/challenges/_table.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -921,7 +992,7 @@
           null
         ]
       },
-      "/Users/pgupta/hackathon/spec/views/index.html.erb_spec.rb": {
+      "/Users/pgupta/hackathon/spec/views/challenges/index.html.erb_spec.rb": {
         "lines": [
           1,
           null,
@@ -1093,6 +1164,6 @@
         ]
       }
     },
-    "timestamp": 1614116243
+    "timestamp": 1614145552
   }
 }

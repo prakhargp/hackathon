@@ -1,7 +1,4 @@
-<% tags_arr = [] %>
-<% Tag.all.each do |tag| %>
-    <% tags_arr.push(tag.tag_name) %>
-<% end %>
+<% tags_arr = tick %>
 
 <%= form_for :challenges, :url => { :action => "create", :controller => "challenges" } do |f| %>
     <div class="add-form">

@@ -29,6 +29,10 @@ gem "simplecov", require: false, group: :test
 gem "capybara"
 gem "rails-controller-testing"
 gem "draper"
+gem "sidekiq", "~> 6.1.3"
+gem "actionview-encoded_mail_to"
+gem "redis-rails"
+gem "redis-namespace"
 
 # Use jquery as the JavaScript library
 gem "jquery-rails"
@@ -56,6 +60,7 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
+  gem "mailcatcher"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
