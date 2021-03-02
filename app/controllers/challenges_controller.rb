@@ -17,26 +17,34 @@ class ChallengesController < ApplicationController
   end
 
   def upvote
-    if VoteService.new(params[:id], @user).create_factory(Vote)
+    # if VoteService.new(params[:id], @user).create_factory(Vote)
+    obj = VoteService.new(params[:id], @user)
+    if obj.send(:create_factory, Vote)
       redirect_to root_path
     end
   end
 
   def downvote
-    if VoteService.new(params[:id], @user).delete_factory(Vote)
+    # if VoteService.new(params[:id], @user).delete_factory(Vote)
+    obj = VoteService.new(params[:id], @user)
+    if obj.send(:delete_factory, Vote)
       redirect_to root_path
     end
   end
 
   def collaborations
-    if CollabService.new(params[:id], @user).create_factory(Collaborator)
+    obj = CollabService.new(params[:id], @user)
+    # if CollabService.new(params[:id], @user).create_factory(Collaborator)
+    if obj.send(:create_factory, Collaborator)
       ChallengeMailer.new_order_email.deliver_later
       redirect_to root_path
     end
   end
 
   def collaborationsdelete
-    if CollabService.new(params[:id], @user).delete_factory(Collaborator)
+    obj = CollabService.new(params[:id], @user)
+    # if CollabService.new(params[:id], @user).delete_factory(Collaborator)
+    if obj.send(:delete_factory, Collaborator)
       redirect_to root_path
     end
   end
